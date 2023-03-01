@@ -11,7 +11,6 @@ validateToken = async (req, res, next) => {
                     console.log("token expire");
                     return res.status(400).send("redirecting to login page, Token has been expired");
                 }
-                req.user = decoded.user;
                 next();
             });
         } else {

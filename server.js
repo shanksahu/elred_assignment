@@ -13,8 +13,7 @@ app.use(cors({
 
 const cookieParser = require("cookie-parser");
 const sessions = require('express-session');
-// const sec_30 = 1000 * 30;
-const sec_30 = 1000 * 30*60*60;
+const sec_30 = 1000 * 30;
 app.use(sessions({
     secret: process.env.SESSION_SECRET,
     saveUninitialized: true,

@@ -65,8 +65,8 @@ const loginController = async (req, res) => {
         if (user.isOtpVerified) {
             const validPassword = await bcrypt.compare(body.password, user.password);
             if (validPassword) {
-                let token = jwt.sign({ user: user }, secret, {
-                    expiresIn: '05m' // 24 hours
+                let token = jwt.sign({}, secret, {
+                    expiresIn: '05m' // 5 min
                 });
                 req.session.views = 1
                 return res.cookie('authorizationToken', token).status(200).send({
